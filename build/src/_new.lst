@@ -1,0 +1,333 @@
+GAS LISTING /tmp/cccwgQT8.s 			page 1
+
+
+   1              		.file	"_new.cpp"
+   2              		.option pic
+   3              		.option norelax
+   4              		.text
+   5              	.Ltext0:
+   6              		.align	2
+   7              		.globl	_Znwm
+   9              	_Znwm:
+  10              	.LFB0:
+  11              		.file 1 "src/_new.cpp"
+   1:src/_new.cpp  **** //
+   2:src/_new.cpp  **** // Created by os on 6/20/23.
+   3:src/_new.cpp  **** //
+   4:src/_new.cpp  **** 
+   5:src/_new.cpp  **** //#include "../lib/mem.h"
+   6:src/_new.cpp  **** #include "../h/syscall_c.hpp"
+   7:src/_new.cpp  **** 
+   8:src/_new.cpp  **** void *operator new(size_t n)
+   9:src/_new.cpp  **** {
+  12              		.loc 1 9 1
+  13              		.cfi_startproc
+  14              	.LVL0:
+  15 0000 130101FF 		addi	sp,sp,-16
+  16              		.cfi_def_cfa_offset 16
+  17 0004 23341100 		sd	ra,8(sp)
+  18 0008 23308100 		sd	s0,0(sp)
+  19              		.cfi_offset 1, -8
+  20              		.cfi_offset 8, -16
+  21 000c 13040101 		addi	s0,sp,16
+  22              		.cfi_def_cfa 8, 0
+  10:src/_new.cpp  ****     return mem_alloc(n);
+  23              		.loc 1 10 5
+  24              		.loc 1 10 21 is_stmt 0
+  25 0010 97000000 		call	_Z9mem_allocm@plt
+  25      E7800000 
+  26              	.LVL1:
+  11:src/_new.cpp  **** }
+  27              		.loc 1 11 1
+  28 0018 83308100 		ld	ra,8(sp)
+  29              		.cfi_restore 1
+  30 001c 03340100 		ld	s0,0(sp)
+  31              		.cfi_restore 8
+  32              		.cfi_def_cfa 2, 16
+  33 0020 13010101 		addi	sp,sp,16
+  34              		.cfi_def_cfa_offset 0
+  35 0024 67800000 		jr	ra
+  36              		.cfi_endproc
+  37              	.LFE0:
+  39              		.align	2
+  40              		.globl	_Znam
+  42              	_Znam:
+  43              	.LFB1:
+  12:src/_new.cpp  **** 
+  13:src/_new.cpp  **** void *operator new[](size_t n)
+  14:src/_new.cpp  **** {
+  44              		.loc 1 14 1 is_stmt 1
+  45              		.cfi_startproc
+GAS LISTING /tmp/cccwgQT8.s 			page 2
+
+
+  46              	.LVL2:
+  47 0028 130101FF 		addi	sp,sp,-16
+  48              		.cfi_def_cfa_offset 16
+  49 002c 23341100 		sd	ra,8(sp)
+  50 0030 23308100 		sd	s0,0(sp)
+  51              		.cfi_offset 1, -8
+  52              		.cfi_offset 8, -16
+  53 0034 13040101 		addi	s0,sp,16
+  54              		.cfi_def_cfa 8, 0
+  15:src/_new.cpp  ****     return mem_alloc(n);
+  55              		.loc 1 15 5
+  56              		.loc 1 15 21 is_stmt 0
+  57 0038 97000000 		call	_Z9mem_allocm@plt
+  57      E7800000 
+  58              	.LVL3:
+  16:src/_new.cpp  **** }
+  59              		.loc 1 16 1
+  60 0040 83308100 		ld	ra,8(sp)
+  61              		.cfi_restore 1
+  62 0044 03340100 		ld	s0,0(sp)
+  63              		.cfi_restore 8
+  64              		.cfi_def_cfa 2, 16
+  65 0048 13010101 		addi	sp,sp,16
+  66              		.cfi_def_cfa_offset 0
+  67 004c 67800000 		jr	ra
+  68              		.cfi_endproc
+  69              	.LFE1:
+  71              		.align	2
+  72              		.globl	_ZdlPv
+  74              	_ZdlPv:
+  75              	.LFB2:
+  17:src/_new.cpp  **** 
+  18:src/_new.cpp  **** void operator delete(void *p) noexcept
+  19:src/_new.cpp  **** {
+  76              		.loc 1 19 1 is_stmt 1
+  77              		.cfi_startproc
+  78              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+  79              		.cfi_lsda 0x1b,.LLSDA2
+  80              	.LVL4:
+  81 0050 130101FF 		addi	sp,sp,-16
+  82              		.cfi_def_cfa_offset 16
+  83 0054 23341100 		sd	ra,8(sp)
+  84 0058 23308100 		sd	s0,0(sp)
+  85              		.cfi_offset 1, -8
+  86              		.cfi_offset 8, -16
+  87 005c 13040101 		addi	s0,sp,16
+  88              		.cfi_def_cfa 8, 0
+  20:src/_new.cpp  ****     mem_free(p);
+  89              		.loc 1 20 5
+  90              		.loc 1 20 13 is_stmt 0
+  91 0060 97000000 		call	_Z8mem_freePv@plt
+  91      E7800000 
+  92              	.LVL5:
+  21:src/_new.cpp  **** }
+  93              		.loc 1 21 1
+  94 0068 83308100 		ld	ra,8(sp)
+  95              		.cfi_restore 1
+GAS LISTING /tmp/cccwgQT8.s 			page 3
+
+
+  96 006c 03340100 		ld	s0,0(sp)
+  97              		.cfi_restore 8
+  98              		.cfi_def_cfa 2, 16
+  99 0070 13010101 		addi	sp,sp,16
+ 100              		.cfi_def_cfa_offset 0
+ 101 0074 67800000 		jr	ra
+ 102              		.cfi_endproc
+ 103              	.LFE2:
+ 104              		.globl	__gxx_personality_v0
+ 105              		.section	.gcc_except_table,"a",@progbits
+ 106              	.LLSDA2:
+ 107 0000 FF       		.byte	0xff
+ 108 0001 FF       		.byte	0xff
+ 109 0002 03       		.byte	0x3
+ 110 0003 00       		.byte	0
+ 111              		.text
+ 113              		.align	2
+ 114              		.globl	_ZdaPv
+ 116              	_ZdaPv:
+ 117              	.LFB3:
+  22:src/_new.cpp  **** 
+  23:src/_new.cpp  **** void operator delete[](void *p) noexcept
+  24:src/_new.cpp  **** {
+ 118              		.loc 1 24 1 is_stmt 1
+ 119              		.cfi_startproc
+ 120              		.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+ 121              		.cfi_lsda 0x1b,.LLSDA3
+ 122              	.LVL6:
+ 123 0078 130101FF 		addi	sp,sp,-16
+ 124              		.cfi_def_cfa_offset 16
+ 125 007c 23341100 		sd	ra,8(sp)
+ 126 0080 23308100 		sd	s0,0(sp)
+ 127              		.cfi_offset 1, -8
+ 128              		.cfi_offset 8, -16
+ 129 0084 13040101 		addi	s0,sp,16
+ 130              		.cfi_def_cfa 8, 0
+  25:src/_new.cpp  ****     mem_free(p);
+ 131              		.loc 1 25 5
+ 132              		.loc 1 25 13 is_stmt 0
+ 133 0088 97000000 		call	_Z8mem_freePv@plt
+ 133      E7800000 
+ 134              	.LVL7:
+  26:src/_new.cpp  **** }
+ 135              		.loc 1 26 1
+ 136 0090 83308100 		ld	ra,8(sp)
+ 137              		.cfi_restore 1
+ 138 0094 03340100 		ld	s0,0(sp)
+ 139              		.cfi_restore 8
+ 140              		.cfi_def_cfa 2, 16
+ 141 0098 13010101 		addi	sp,sp,16
+ 142              		.cfi_def_cfa_offset 0
+ 143 009c 67800000 		jr	ra
+ 144              		.cfi_endproc
+ 145              	.LFE3:
+ 146              		.section	.gcc_except_table
+ 147              	.LLSDA3:
+ 148 0004 FF       		.byte	0xff
+GAS LISTING /tmp/cccwgQT8.s 			page 4
+
+
+ 149 0005 FF       		.byte	0xff
+ 150 0006 03       		.byte	0x3
+ 151 0007 00       		.byte	0
+ 152              		.text
+ 154              	.Letext0:
+ 155              		.file 2 "src/../h/../lib/hw.h"
+ 156              		.file 3 "src/../h/syscall_c.hpp"
+ 836              		.align	3
+ 839              	DW.ref.__gxx_personality_v0:
+ 840 0000 00000000 		.dword	__gxx_personality_v0
+ 840      00000000 
+ 841              		.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04) 9.4.0"
+ 842              		.section	.note.GNU-stack,"",@progbits
+GAS LISTING /tmp/cccwgQT8.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 _new.cpp
+     /tmp/cccwgQT8.s:9      .text:0000000000000000 _Znwm
+     /tmp/cccwgQT8.s:13     .text:0000000000000000 .L0 
+     /tmp/cccwgQT8.s:15     .text:0000000000000000 .L0 
+     /tmp/cccwgQT8.s:16     .text:0000000000000004 .L0 
+     /tmp/cccwgQT8.s:19     .text:000000000000000c .L0 
+     /tmp/cccwgQT8.s:20     .text:000000000000000c .L0 
+     /tmp/cccwgQT8.s:22     .text:0000000000000010 .L0 
+     /tmp/cccwgQT8.s:24     .text:0000000000000010 .L0 
+     /tmp/cccwgQT8.s:25     .text:0000000000000010 .L0 
+     /tmp/cccwgQT8.s:28     .text:0000000000000018 .L0 
+     /tmp/cccwgQT8.s:29     .text:000000000000001c .L0 
+     /tmp/cccwgQT8.s:31     .text:0000000000000020 .L0 
+     /tmp/cccwgQT8.s:32     .text:0000000000000020 .L0 
+     /tmp/cccwgQT8.s:34     .text:0000000000000024 .L0 
+     /tmp/cccwgQT8.s:36     .text:0000000000000028 .L0 
+     /tmp/cccwgQT8.s:42     .text:0000000000000028 _Znam
+     /tmp/cccwgQT8.s:45     .text:0000000000000028 .L0 
+     /tmp/cccwgQT8.s:47     .text:0000000000000028 .L0 
+     /tmp/cccwgQT8.s:48     .text:000000000000002c .L0 
+     /tmp/cccwgQT8.s:51     .text:0000000000000034 .L0 
+     /tmp/cccwgQT8.s:52     .text:0000000000000034 .L0 
+     /tmp/cccwgQT8.s:54     .text:0000000000000038 .L0 
+     /tmp/cccwgQT8.s:56     .text:0000000000000038 .L0 
+     /tmp/cccwgQT8.s:57     .text:0000000000000038 .L0 
+     /tmp/cccwgQT8.s:60     .text:0000000000000040 .L0 
+     /tmp/cccwgQT8.s:61     .text:0000000000000044 .L0 
+     /tmp/cccwgQT8.s:63     .text:0000000000000048 .L0 
+     /tmp/cccwgQT8.s:64     .text:0000000000000048 .L0 
+     /tmp/cccwgQT8.s:66     .text:000000000000004c .L0 
+     /tmp/cccwgQT8.s:68     .text:0000000000000050 .L0 
+     /tmp/cccwgQT8.s:74     .text:0000000000000050 _ZdlPv
+     /tmp/cccwgQT8.s:77     .text:0000000000000050 .L0 
+     /tmp/cccwgQT8.s:839    .data.rel.local.DW.ref.__gxx_personality_v0:0000000000000000 DW.ref.__gxx_personality_v0
+     /tmp/cccwgQT8.s:81     .text:0000000000000050 .L0 
+     /tmp/cccwgQT8.s:82     .text:0000000000000054 .L0 
+     /tmp/cccwgQT8.s:85     .text:000000000000005c .L0 
+     /tmp/cccwgQT8.s:86     .text:000000000000005c .L0 
+     /tmp/cccwgQT8.s:88     .text:0000000000000060 .L0 
+     /tmp/cccwgQT8.s:90     .text:0000000000000060 .L0 
+     /tmp/cccwgQT8.s:91     .text:0000000000000060 .L0 
+     /tmp/cccwgQT8.s:94     .text:0000000000000068 .L0 
+     /tmp/cccwgQT8.s:95     .text:000000000000006c .L0 
+     /tmp/cccwgQT8.s:97     .text:0000000000000070 .L0 
+     /tmp/cccwgQT8.s:98     .text:0000000000000070 .L0 
+     /tmp/cccwgQT8.s:100    .text:0000000000000074 .L0 
+     /tmp/cccwgQT8.s:102    .text:0000000000000078 .L0 
+     /tmp/cccwgQT8.s:116    .text:0000000000000078 _ZdaPv
+     /tmp/cccwgQT8.s:119    .text:0000000000000078 .L0 
+     /tmp/cccwgQT8.s:123    .text:0000000000000078 .L0 
+     /tmp/cccwgQT8.s:124    .text:000000000000007c .L0 
+     /tmp/cccwgQT8.s:127    .text:0000000000000084 .L0 
+     /tmp/cccwgQT8.s:128    .text:0000000000000084 .L0 
+     /tmp/cccwgQT8.s:130    .text:0000000000000088 .L0 
+     /tmp/cccwgQT8.s:132    .text:0000000000000088 .L0 
+     /tmp/cccwgQT8.s:133    .text:0000000000000088 .L0 
+GAS LISTING /tmp/cccwgQT8.s 			page 6
+
+
+     /tmp/cccwgQT8.s:136    .text:0000000000000090 .L0 
+     /tmp/cccwgQT8.s:137    .text:0000000000000094 .L0 
+     /tmp/cccwgQT8.s:139    .text:0000000000000098 .L0 
+     /tmp/cccwgQT8.s:140    .text:0000000000000098 .L0 
+     /tmp/cccwgQT8.s:142    .text:000000000000009c .L0 
+     /tmp/cccwgQT8.s:144    .text:00000000000000a0 .L0 
+     /tmp/cccwgQT8.s:157    .text:00000000000000a0 .L0 
+     /tmp/cccwgQT8.s:430    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+     /tmp/cccwgQT8.s:817    .debug_str:0000000000000177 .LASF29
+     /tmp/cccwgQT8.s:831    .debug_str:0000000000000281 .LASF30
+     /tmp/cccwgQT8.s:799    .debug_str:00000000000000c5 .LASF31
+     /tmp/cccwgQT8.s:5      .text:0000000000000000 .Ltext0
+     /tmp/cccwgQT8.s:154    .text:00000000000000a0 .Letext0
+     /tmp/cccwgQT8.s:767    .debug_line:0000000000000000 .Ldebug_line0
+     /tmp/cccwgQT8.s:773    .debug_str:0000000000000019 .LASF0
+     /tmp/cccwgQT8.s:815    .debug_str:0000000000000164 .LASF1
+     /tmp/cccwgQT8.s:797    .debug_str:00000000000000b7 .LASF2
+     /tmp/cccwgQT8.s:791    .debug_str:0000000000000094 .LASF4
+     /tmp/cccwgQT8.s:785    .debug_str:0000000000000061 .LASF3
+     /tmp/cccwgQT8.s:779    .debug_str:0000000000000043 .LASF5
+     /tmp/cccwgQT8.s:789    .debug_str:0000000000000081 .LASF6
+     /tmp/cccwgQT8.s:813    .debug_str:0000000000000151 .LASF7
+     /tmp/cccwgQT8.s:825    .debug_str:0000000000000257 .LASF8
+     /tmp/cccwgQT8.s:775    .debug_str:0000000000000026 .LASF9
+     /tmp/cccwgQT8.s:777    .debug_str:0000000000000034 .LASF10
+     /tmp/cccwgQT8.s:819    .debug_str:000000000000023b .LASF11
+     /tmp/cccwgQT8.s:781    .debug_str:000000000000004a .LASF12
+     /tmp/cccwgQT8.s:829    .debug_str:0000000000000271 .LASF13
+     /tmp/cccwgQT8.s:795    .debug_str:00000000000000ab .LASF14
+     /tmp/cccwgQT8.s:807    .debug_str:0000000000000127 .LASF15
+     /tmp/cccwgQT8.s:803    .debug_str:0000000000000104 .LASF16
+     /tmp/cccwgQT8.s:801    .debug_str:00000000000000f1 .LASF17
+     /tmp/cccwgQT8.s:821    .debug_str:000000000000024a .LASF19
+     /tmp/cccwgQT8.s:117    .text:0000000000000078 .LFB3
+     /tmp/cccwgQT8.s:145    .text:00000000000000a0 .LFE3
+     /tmp/cccwgQT8.s:698    .debug_loc:0000000000000000 .LLST3
+     /tmp/cccwgQT8.s:134    .text:0000000000000090 .LVL7
+     /tmp/cccwgQT8.s:793    .debug_str:000000000000009b .LASF18
+     /tmp/cccwgQT8.s:783    .debug_str:000000000000005a .LASF20
+     /tmp/cccwgQT8.s:75     .text:0000000000000050 .LFB2
+     /tmp/cccwgQT8.s:103    .text:0000000000000078 .LFE2
+     /tmp/cccwgQT8.s:712    .debug_loc:0000000000000039 .LLST2
+     /tmp/cccwgQT8.s:92     .text:0000000000000068 .LVL5
+     /tmp/cccwgQT8.s:771    .debug_str:0000000000000009 .LASF21
+     /tmp/cccwgQT8.s:809    .debug_str:000000000000013d .LASF23
+     /tmp/cccwgQT8.s:43     .text:0000000000000028 .LFB1
+     /tmp/cccwgQT8.s:69     .text:0000000000000050 .LFE1
+     /tmp/cccwgQT8.s:726    .debug_loc:0000000000000072 .LLST1
+     /tmp/cccwgQT8.s:58     .text:0000000000000040 .LVL3
+     /tmp/cccwgQT8.s:805    .debug_str:000000000000011a .LASF22
+     /tmp/cccwgQT8.s:823    .debug_str:0000000000000251 .LASF24
+     /tmp/cccwgQT8.s:10     .text:0000000000000000 .LFB0
+     /tmp/cccwgQT8.s:37     .text:0000000000000028 .LFE0
+     /tmp/cccwgQT8.s:740    .debug_loc:00000000000000ab .LLST0
+     /tmp/cccwgQT8.s:26     .text:0000000000000018 .LVL1
+     /tmp/cccwgQT8.s:787    .debug_str:0000000000000073 .LASF25
+     /tmp/cccwgQT8.s:769    .debug_str:0000000000000000 .LASF27
+GAS LISTING /tmp/cccwgQT8.s 			page 7
+
+
+     /tmp/cccwgQT8.s:811    .debug_str:0000000000000143 .LASF26
+     /tmp/cccwgQT8.s:827    .debug_str:0000000000000267 .LASF28
+     /tmp/cccwgQT8.s:122    .text:0000000000000078 .LVL6
+     /tmp/cccwgQT8.s:80     .text:0000000000000050 .LVL4
+     /tmp/cccwgQT8.s:46     .text:0000000000000028 .LVL2
+     /tmp/cccwgQT8.s:14     .text:0000000000000000 .LVL0
+     /tmp/cccwgQT8.s:158    .debug_info:0000000000000000 .Ldebug_info0
+     /tmp/cccwgQT8.s:106    .gcc_except_table:0000000000000000 .LLSDA2
+     /tmp/cccwgQT8.s:147    .gcc_except_table:0000000000000004 .LLSDA3
+
+UNDEFINED SYMBOLS
+_Z9mem_allocm
+_Z8mem_freePv
+__gxx_personality_v0
